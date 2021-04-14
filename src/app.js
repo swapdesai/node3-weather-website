@@ -21,17 +21,7 @@ hbs.registerPartials(partialsPath)
 // Setup static directory to serve
 app.use(express.static(publicDirPath))
 
-// Logger middleware
-const logger = (req, res, next) => {
-  console.log("Hello from logger");
-  console.log(res.statusCode);
-  next()
-}
-
-app.use(logger)
-
 app.get('', (req, res) => {
-  console.log('Index')
   res.render('index', {
     title: 'Weather',
     name: 'Andrew'
